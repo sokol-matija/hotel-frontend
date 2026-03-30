@@ -52,9 +52,7 @@ export default function Header() {
             alt="Hotel Porec logo"
             className="h-10 w-auto"
           />
-          <span className="text-lg font-bold tracking-tight text-gray-900">
-            {t("common.hotelPorec")}
-          </span>
+
         </Link>
 
         {/* Desktop nav */}

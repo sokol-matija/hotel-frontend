@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export const Route = createFileRoute("/")({ component: HomePage })
 
+
 /* ------------------------------------------------------------------ */
 /*  Room keys (for i18n lookup)                                       */
 /* ------------------------------------------------------------------ */
@@ -42,9 +43,7 @@ function HomePage() {
   const roomsGridRef = useRef<HTMLDivElement>(null)
   const restaurantImagesRef = useRef<HTMLDivElement>(null)
   const restaurantTextRef = useRef<HTMLDivElement>(null)
-  const contactHeaderRef = useRef<HTMLDivElement>(null)
-  const contactCardsRef = useRef<HTMLDivElement>(null)
-  const contactCtaRef = useRef<HTMLDivElement>(null)
+
   const [showBookBtn, setShowBookBtn] = useState(false)
 
   useEffect(() => {
@@ -178,25 +177,6 @@ function HomePage() {
         })
       }
 
-      /* Contact — slide up + stagger */
-      if (contactHeaderRef.current) {
-        gsap.fromTo(contactHeaderRef.current.children, { opacity: 0, y: 25 }, {
-          opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease,
-          scrollTrigger: { trigger: contactHeaderRef.current, start: "top 85%", toggleActions: "play none none none" },
-        })
-      }
-      if (contactCardsRef.current) {
-        gsap.fromTo(contactCardsRef.current.children, { opacity: 0, y: 40 }, {
-          opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease,
-          scrollTrigger: { trigger: contactCardsRef.current, start: "top 85%", toggleActions: "play none none none" },
-        })
-      }
-      if (contactCtaRef.current) {
-        gsap.fromTo(contactCtaRef.current, { opacity: 0, y: 20 }, {
-          opacity: 1, y: 0, duration: 0.7, ease,
-          scrollTrigger: { trigger: contactCtaRef.current, start: "top 90%", toggleActions: "play none none none" },
-        })
-      }
     }, mainRef)
 
     return () => ctx.revert()
@@ -400,8 +380,8 @@ function HomePage() {
       {/*  MOSAIC — "Ples prirode"                                     */}
       {/* ============================================================ */}
       <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-white py-20 sm:py-28">
-        {/* Subtle mosaic art background */}
-        <div className="absolute inset-0 opacity-[0.06]">
+        {/* Mosaic art background */}
+        <div className="absolute inset-0 opacity-[0.14]">
           <img
             src="/mozaik_gp1.webp"
             alt=""
@@ -628,16 +608,13 @@ function HomePage() {
       {/* ============================================================ */}
       {/*  CONTACT / CTA                                               */}
       {/* ============================================================ */}
-      <section id="contact" className="relative overflow-hidden bg-white py-20 sm:py-24">
-        {/* Subtle background */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-[0.06]"
-          style={{ backgroundImage: "url(/zemlja_gp_copy.webp)" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50/80 to-blue-100" />
+      <section id="contact" className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50/80 to-blue-100 py-20 sm:py-24">
+        <div className="absolute inset-0 opacity-[0.06]">
+          <img src="/zemlja_gp_copy.webp" alt="" aria-hidden="true" loading="eager" decoding="async" className="h-full w-full object-cover" />
+        </div>
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div ref={contactHeaderRef} className="mb-12 text-center">
+          <div className="mb-12 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
               {t("contact.label")}
             </p>
@@ -650,7 +627,7 @@ function HomePage() {
           </div>
 
           {/* Best price highlight */}
-          <div className="mx-auto mb-10 max-w-xl overflow-hidden rounded-2xl border border-blue-200 bg-white p-8 text-center shadow-lg">
+          <div className="mx-auto mb-10 max-w-xl rounded-2xl border border-blue-200 bg-white p-8 text-center shadow-md">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-1.5 text-sm font-semibold text-green-700">
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -667,13 +644,13 @@ function HomePage() {
             </p>
             <a
               href="/book"
-              className="inline-block min-h-[44px] rounded-xl bg-blue-600 px-10 py-4 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
+              className="inline-block min-h-[44px] rounded-xl bg-blue-600 px-10 py-4 text-base font-semibold text-white no-underline transition-colors hover:bg-blue-700"
             >
               {t("contact.bookNowBestPrice")}
             </a>
           </div>
 
-          <div ref={contactCardsRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Phone */}
             <div className="rounded-xl border border-gray-200/80 bg-white p-6 text-center shadow-sm">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
@@ -758,13 +735,13 @@ function HomePage() {
           </div>
 
           {/* Google Maps */}
-          <div ref={contactCtaRef} className="mt-10 overflow-hidden rounded-2xl shadow-lg">
+          <div className="mt-10 overflow-hidden rounded-2xl shadow-md">
             <iframe
               title="Hotel Porec location"
               src="https://maps.google.com/maps?q=Hotel+Porec,+Rade+Koncara+1,+52440+Porec,+Croatia&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="300"
-              style={{ border: 0 }}
+              style={{ border: 0, display: "block" }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

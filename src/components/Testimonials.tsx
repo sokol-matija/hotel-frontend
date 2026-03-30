@@ -1,6 +1,3 @@
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-
 const REVIEWS = [
   {
     text: "Lovely hotel. Perfect location by beach and town. Everything works — fridge cold, aircon great, shower great. Nice balcony and everything you could want for breakfast.",
@@ -78,39 +75,8 @@ function Stars({ rating }: { rating: number }) {
 }
 
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const trackRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!trackRef.current || !sectionRef.current) return
-
-    const track = trackRef.current
-    const totalWidth = track.scrollWidth - track.parentElement!.clientWidth
-
-    const ctx = gsap.context(() => {
-      gsap.to(track, {
-        x: -totalWidth,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 20%",
-          end: () => `+=${totalWidth}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section
-      ref={sectionRef}
-      className="overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50/60 to-blue-100 py-20 sm:py-24"
-    >
+    <section className="overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50/60 to-blue-100 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-4 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
@@ -138,11 +104,10 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* Horizontal scroll track */}
+      {/* Horizontal scroll track — simple drag/swipe scroll, no pin animation */}
       <div className="relative">
         <div
-          ref={trackRef}
-          className="flex gap-5 pl-[max(1rem,calc((100vw-72rem)/2+1rem))]"
+          className="flex gap-5 overflow-x-auto scroll-smooth pb-4 pl-[max(1rem,calc((100vw-72rem)/2+1rem))] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {REVIEWS.map((review, i) => (
             <article
