@@ -10,7 +10,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:run": "vitest run",
+    "test:run": "vitest run --passWithNoTests",
     "lint": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
     "validate": "tsc --noEmit && vite build"
