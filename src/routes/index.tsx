@@ -470,7 +470,7 @@ function HomePage() {
           {/* Artist quote — word-by-word reveal */}
           <blockquote ref={mosaicQuoteRef} className="mx-auto mt-14 max-w-3xl border-l-2 border-blue-300/40 pl-6 text-left italic text-gray-500 sm:border-l-0 sm:pl-0 sm:text-center">
             <p className="text-lg leading-relaxed sm:text-xl">
-              {quoteText.split(" ").map((word, i) => (
+              {quoteText.split(" ").map((word: string, i: number) => (
                 <span key={i} className="quote-word inline-block opacity-[0.1]">
                   {word}&nbsp;
                 </span>
