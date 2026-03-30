@@ -3,8 +3,7 @@ import {
   Scripts,
   createRootRouteWithContext,
 } from "@tanstack/react-router"
-import { useTranslation } from "react-i18next"
-import "@/i18n"
+import i18n from "@/i18n"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 
@@ -131,9 +130,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const { i18n } = useTranslation()
   return (
-    <html lang={i18n.language} suppressHydrationWarning>
+    <html lang={i18n.language || "en"} suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

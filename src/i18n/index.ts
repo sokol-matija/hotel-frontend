@@ -11,18 +11,23 @@ const resources = {
   de: { translation: de },
 }
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLng: "en",
-    lng: "en",
-    interpolation: { escapeValue: false },
-    detection: {
-      order: ["localStorage", "htmlTag"],
-      caches: ["localStorage"],
-    },
-  })
+const isServer = typeof window === "undefined"
+
+const instance = isServer ? i18n.use(initReactI18next) : i18n.use(LanguageDetector).use(initReactI18next)
+
+instance.init({
+  resources,
+  fallbackLng: "en",
+  lng: "en",
+  interpolation: { escapeValue: false },
+  ...(isServer
+    ? {}
+    : {
+        detection: {
+          order: ["localStorage", "htmlTag"],
+          caches: ["localStorage"],
+        },
+      }),
+})
 
 export default i18n
