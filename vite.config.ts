@@ -8,22 +8,22 @@ import { nitro } from 'nitro/vite'
 
 import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+
 const config = defineConfig({
   resolve: {
     dedupe: ["react", "react-dom", "react-i18next", "i18next"],
-    alias: {
-      react: path.resolve(__dirname, 'node_modules/react'),
-      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
-      'react-i18next': path.resolve(__dirname, 'node_modules/react-i18next'),
-      i18next: path.resolve(__dirname, 'node_modules/i18next'),
-    },
   },
   plugins: [
     devtools(),
     tsconfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
     tanstackStart(),
-    nitro({ preset: "vercel" }),
+    nitro({
+      preset: "vercel",
+      alias: {
+        'react-i18next': path.resolve(__dirname, 'node_modules/react-i18next/dist/es/index.js'),
+      },
+    }),
     viteReact(),
   ],
 })
