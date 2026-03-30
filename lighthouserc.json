@@ -1,7 +1,7 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": ".output/public"
+      "staticDistDir": ".vercel/output/static"
     },
     "assert": {
       "assertions": {
