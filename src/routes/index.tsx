@@ -1,4 +1,9 @@
+import { useEffect, useRef, useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 export const Route = createFileRoute("/")({ component: HomePage })
 
@@ -52,133 +57,183 @@ const ROOMS = [
 ] as const
 
 /* ------------------------------------------------------------------ */
-/*  Amenity data                                                      */
-/* ------------------------------------------------------------------ */
-
-const AMENITIES = [
-  {
-    title: "Free Wi-Fi",
-    description: "High-speed wireless internet throughout the hotel.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Air Conditioning",
-    description: "Climate control in every room for year-round comfort.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Private Balcony",
-    description: "Step outside and enjoy fresh Mediterranean air.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "SAT-TV",
-    description: "Satellite television with international channels.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Minibar & Safe",
-    description: "In-room minibar and personal safe in every room.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Free Parking",
-    description: "Complimentary parking for all hotel guests.",
-    icon: (
-      <svg
-        className="h-7 w-7"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-        />
-      </svg>
-    ),
-  },
-] as const
-
-/* ------------------------------------------------------------------ */
 /*  Page component                                                    */
 /* ------------------------------------------------------------------ */
 
 function HomePage() {
+  const mainRef = useRef<HTMLElement>(null)
+  const heroRef = useRef<HTMLDivElement>(null)
+  const heroImagesRef = useRef<HTMLDivElement>(null)
+  const heroBgRef = useRef<HTMLImageElement>(null)
+  const exteriorRef = useRef<HTMLDivElement>(null)
+  const aboutTextRef = useRef<HTMLDivElement>(null)
+  const aboutImagesRef = useRef<HTMLDivElement>(null)
+  const mosaicTextRef = useRef<HTMLDivElement>(null)
+  const mosaicImagesRef = useRef<HTMLDivElement>(null)
+  const mosaicQuoteRef = useRef<HTMLQuoteElement>(null)
+  const roomsHeaderRef = useRef<HTMLDivElement>(null)
+  const roomsGridRef = useRef<HTMLDivElement>(null)
+  const restaurantImagesRef = useRef<HTMLDivElement>(null)
+  const restaurantTextRef = useRef<HTMLDivElement>(null)
+  const contactHeaderRef = useRef<HTMLDivElement>(null)
+  const contactCardsRef = useRef<HTMLDivElement>(null)
+  const contactCtaRef = useRef<HTMLDivElement>(null)
+  const [showBookBtn, setShowBookBtn] = useState(false)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const ease = "power3.out"
+      const softEase = "power2.out"
+
+      /* Hero — staggered entrance */
+      if (heroRef.current) {
+        const children = heroRef.current.children
+        const tl = gsap.timeline({ defaults: { ease } })
+        tl.fromTo(children[0], { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 1 }, 0.2)
+        tl.fromTo(children[1], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0.5)
+        tl.fromTo(children[2], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, 0.7)
+        tl.fromTo(children[3], { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.7 }, 0.9)
+      }
+
+      /* Hero images — staggered reveal */
+      if (heroImagesRef.current) {
+        const imgs = heroImagesRef.current.querySelectorAll(".hero-img")
+        gsap.fromTo(imgs, { opacity: 0, scale: 0.92, y: 30 }, {
+          opacity: 1, scale: 1, y: 0, duration: 0.9, stagger: 0.15, ease,
+          delay: 0.5,
+        })
+      }
+
+      /* Hero background parallax */
+      if (heroBgRef.current) {
+        gsap.to(heroBgRef.current, {
+          y: -60,
+          ease: "none",
+          scrollTrigger: { trigger: heroBgRef.current, start: "top top", end: "bottom top", scrub: 1 },
+        })
+      }
+
+      /* Floating Book Now — show after 100vh */
+      ScrollTrigger.create({
+        trigger: mainRef.current,
+        start: "100vh top",
+        onEnter: () => setShowBookBtn(true),
+        onLeaveBack: () => setShowBookBtn(false),
+      })
+
+      /* Exterior — slide up with rotation + stagger */
+      if (exteriorRef.current) {
+        gsap.fromTo(exteriorRef.current.children, { opacity: 0, y: 60, rotation: 2 }, {
+          opacity: 1, y: 0, rotation: 0, duration: 0.9, stagger: 0.15, ease,
+          scrollTrigger: { trigger: exteriorRef.current, start: "top 85%", toggleActions: "play none none none" },
+        })
+      }
+
+      /* About — text from left, images from right */
+      if (aboutTextRef.current) {
+        gsap.fromTo(aboutTextRef.current.children, { opacity: 0, x: -50 }, {
+          opacity: 1, x: 0, duration: 0.8, stagger: 0.12, ease,
+          scrollTrigger: { trigger: aboutTextRef.current, start: "top 80%", toggleActions: "play none none none" },
+        })
+      }
+      if (aboutImagesRef.current) {
+        gsap.fromTo(aboutImagesRef.current.children, { opacity: 0, x: 60, y: 30 }, {
+          opacity: 1, x: 0, y: (i: number) => (i === 1 ? 32 : 0), duration: 1, stagger: 0.2, ease,
+          scrollTrigger: { trigger: aboutImagesRef.current, start: "top 80%", toggleActions: "play none none none" },
+        })
+      }
+
+      /* Mosaic — text stagger + clip-path wipe + quote */
+      if (mosaicTextRef.current) {
+        gsap.fromTo(mosaicTextRef.current.children, { opacity: 0, y: 30 }, {
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease,
+          scrollTrigger: { trigger: mosaicTextRef.current, start: "top 80%", toggleActions: "play none none none" },
+        })
+      }
+      if (mosaicImagesRef.current) {
+        const imgs = mosaicImagesRef.current.querySelectorAll(".mosaic-clip-img")
+        gsap.fromTo(imgs, { clipPath: "inset(0 100% 0 0)" }, {
+          clipPath: "inset(0 0% 0 0)", duration: 1.2, stagger: 0.2, ease: softEase,
+          scrollTrigger: { trigger: mosaicImagesRef.current, start: "top 75%", toggleActions: "play none none none" },
+        })
+      }
+      if (mosaicQuoteRef.current) {
+        const words = mosaicQuoteRef.current.querySelectorAll(".quote-word")
+        gsap.fromTo(words, { opacity: 0.1 }, {
+          opacity: 1, duration: 0.05, stagger: 0.04, ease: "none",
+          scrollTrigger: { trigger: mosaicQuoteRef.current, start: "top 85%", toggleActions: "play none none none" },
+        })
+        const footer = mosaicQuoteRef.current.querySelector("footer")
+        if (footer) {
+          gsap.fromTo(footer, { opacity: 0, y: 10 }, {
+            opacity: 1, y: 0, duration: 0.8, delay: 0.6, ease,
+            scrollTrigger: { trigger: mosaicQuoteRef.current, start: "top 85%", toggleActions: "play none none none" },
+          })
+        }
+      }
+
+      /* Rooms — header + cascading fade-up */
+      if (roomsHeaderRef.current) {
+        gsap.fromTo(roomsHeaderRef.current.children, { opacity: 0, y: 25 }, {
+          opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease,
+          scrollTrigger: { trigger: roomsHeaderRef.current, start: "top 85%", toggleActions: "play none none none" },
+        })
+      }
+      if (roomsGridRef.current) {
+        gsap.fromTo(roomsGridRef.current.children, { opacity: 0, y: 50 }, {
+          opacity: 1, y: 0, duration: 0.6, stagger: { each: 0.1, from: "start" }, ease: "back.out(1.2)",
+          scrollTrigger: { trigger: roomsGridRef.current, start: "top 85%", toggleActions: "play none none none" },
+        })
+      }
+
+      /* Restaurant — masonry stagger + text from right */
+      if (restaurantImagesRef.current) {
+        const imgs = restaurantImagesRef.current.children
+        const directions = [{ x: -40, y: 30 }, { x: 40, y: 50 }, { x: -30, y: 40 }, { x: 30, y: 60 }]
+        Array.from(imgs).forEach((img, i) => {
+          const d = directions[i] ?? { x: 0, y: 30 }
+          gsap.fromTo(img, { opacity: 0, x: d.x, y: d.y }, {
+            opacity: 1, x: 0, y: i % 2 === 1 ? 24 : 0, duration: 0.9, delay: i * 0.12, ease,
+            scrollTrigger: { trigger: restaurantImagesRef.current, start: "top 80%", toggleActions: "play none none none" },
+          })
+        })
+      }
+      if (restaurantTextRef.current) {
+        gsap.fromTo(restaurantTextRef.current.children, { opacity: 0, x: 50 }, {
+          opacity: 1, x: 0, duration: 0.8, stagger: 0.12, ease,
+          scrollTrigger: { trigger: restaurantTextRef.current, start: "top 80%", toggleActions: "play none none none" },
+        })
+      }
+
+      /* Contact — slide up + stagger */
+      if (contactHeaderRef.current) {
+        gsap.fromTo(contactHeaderRef.current.children, { opacity: 0, y: 25 }, {
+          opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease,
+          scrollTrigger: { trigger: contactHeaderRef.current, start: "top 85%", toggleActions: "play none none none" },
+        })
+      }
+      if (contactCardsRef.current) {
+        gsap.fromTo(contactCardsRef.current.children, { opacity: 0, y: 40 }, {
+          opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease,
+          scrollTrigger: { trigger: contactCardsRef.current, start: "top 85%", toggleActions: "play none none none" },
+        })
+      }
+      if (contactCtaRef.current) {
+        gsap.fromTo(contactCtaRef.current, { opacity: 0, y: 20 }, {
+          opacity: 1, y: 0, duration: 0.7, ease,
+          scrollTrigger: { trigger: contactCtaRef.current, start: "top 90%", toggleActions: "play none none none" },
+        })
+      }
+    }, mainRef)
+
+    return () => ctx.revert()
+  }, [])
+
+  const quoteText =
+    "\u201CThis demonstrates the need for artists and craftsmen to unite, bringing renewed strength to collaboration that enriches our culture and enhances the visual identity of Porec\u2019s seafront.\u201D"
+
   return (
-    <main>
+    <main ref={mainRef}>
       {/* ============================================================ */}
       {/*  HERO                                                        */}
       {/* ============================================================ */}
@@ -186,53 +241,105 @@ function HomePage() {
         {/* Background — mosaic artwork */}
         <div className="absolute inset-0">
           <img
+            ref={heroBgRef}
             src="/mozaik_gp1.png"
             alt=""
-            className="absolute bottom-0 right-0 h-[70%] w-auto object-contain opacity-[0.12] sm:opacity-[0.15]"
+            className="absolute bottom-0 right-0 h-[70%] w-auto object-contain opacity-[0.12] will-change-transform sm:opacity-[0.15]"
           />
         </div>
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/80 via-transparent to-blue-50/90" />
 
-        <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-          <img
-            src="/LOGO1-hires.png"
-            alt="Hotel Porec logo"
-            className="fade-in mb-6 h-24 w-auto sm:h-28 lg:h-32"
-          />
-          <h1 className="fade-in mb-5 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
-            Hotel Porec
-          </h1>
-          <p className="fade-in mb-3 text-lg font-medium tracking-wide text-blue-600/80 sm:text-xl">
-            Beside the Marina &bull; Since 1997 &bull; Open Year-Round
-          </p>
-          <p className="fade-in mx-auto mb-10 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg">
-            A privately owned Mediterranean retreat on the Istrian coast,
-            where Adriatic charm meets genuine Croatian hospitality.
-          </p>
-          <div className="fade-in flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#rooms"
-              className="rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
-            >
-              Explore Rooms
-            </a>
-            <a
-              href="#contact"
-              className="rounded-lg border border-blue-200 bg-white/80 px-8 py-3.5 text-base font-semibold text-blue-600 no-underline backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white"
-            >
-              Book Your Stay
-            </a>
+        <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-8 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8">
+          {/* Left — text content */}
+          <div ref={heroRef} className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <img
+              src="/LOGO1-hires.png"
+              alt="Hotel Porec logo"
+              className="mb-8 h-20 w-auto opacity-0 sm:h-28 lg:h-36"
+            />
+            <p className="mb-4 text-base font-medium tracking-wide text-blue-600/80 opacity-0 sm:text-lg">
+              In the Center &bull; Open Year-Round
+            </p>
+            <p className="mb-10 max-w-lg text-base leading-relaxed text-gray-500 opacity-0 sm:text-lg">
+              A privately owned Mediterranean retreat on the Istrian coast,
+              where Adriatic charm meets genuine Croatian hospitality.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4 opacity-0 lg:justify-start">
+              <a
+                href="#rooms"
+                className="min-h-[44px] rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
+              >
+                Explore Rooms
+              </a>
+              <a
+                href="/book"
+                className="min-h-[44px] rounded-lg border border-blue-200 bg-white/80 px-8 py-3.5 text-base font-semibold text-blue-600 no-underline backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white"
+              >
+                Book Your Stay
+              </a>
+            </div>
           </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-            <div className="flex flex-col items-center gap-2 text-gray-400">
-              <span className="text-xs font-medium uppercase tracking-widest">Discover</span>
-              <svg className="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-              </svg>
+          {/* Mobile — single hero image */}
+          <div className="lg:hidden">
+            <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
+              <img
+                src="/hotel-site/best-images/apt-01.jpg"
+                alt="Rooftop whirlpool overlooking Porec at night"
+                className="aspect-[16/10] w-full object-cover"
+              />
             </div>
+          </div>
+
+          {/* Desktop — image mosaic */}
+          <div ref={heroImagesRef} className="hidden lg:block">
+            <div className="grid grid-cols-2 gap-3" style={{ height: "min(80vh, 700px)" }}>
+              {/* Left column — stacked */}
+              <div className="grid grid-rows-3 gap-3">
+                <div className="hero-img row-span-2 overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/hotel-site/best-images/apt-01.jpg"
+                    alt="Rooftop whirlpool overlooking Porec at night"
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+                <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/hotel-site/best-images/apt-13.jpg"
+                    alt="Modern hotel room with panoramic view"
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              </div>
+              {/* Right column — stacked */}
+              <div className="grid grid-rows-3 gap-3">
+                <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/hotel-site/best-images/655244105_18115779043641697_9049057771106596511_n.jpg"
+                    alt="Mosaic artwork on hotel facade"
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+                <div className="hero-img row-span-2 overflow-hidden rounded-2xl shadow-xl">
+                  <img
+                    src="/hotel-site/best-images/exterior-3.jpg"
+                    alt="Hotel Porec exterior with garden"
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className="flex flex-col items-center gap-2 text-gray-400">
+            <span className="text-xs font-medium uppercase tracking-widest">Discover</span>
+            <svg className="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+            </svg>
           </div>
         </div>
       </section>
@@ -240,7 +347,7 @@ function HomePage() {
       {/* ---- Hotel exterior showcase ---- */}
       <section className="relative -mt-1 bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <div ref={exteriorRef} className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
             <div className="col-span-2 overflow-hidden rounded-2xl shadow-lg">
               <img
                 src="/mozaik/470911327_18035751920585995_4281438597651726607_n.jpg"
@@ -265,6 +372,7 @@ function HomePage() {
               />
             </div>
           </div>
+
         </div>
       </section>
 
@@ -274,7 +382,7 @@ function HomePage() {
       <section id="about" className="bg-white py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
+            <div ref={aboutTextRef}>
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
                 Since 1997
               </p>
@@ -306,7 +414,7 @@ function HomePage() {
                 </span>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div ref={aboutImagesRef} className="grid grid-cols-2 gap-4">
               <img
                 src="/hotel-site/hotel/exterior-1.jpg"
                 alt="Hotel Porec from the front"
@@ -327,7 +435,7 @@ function HomePage() {
       {/* ============================================================ */}
       {/*  MOSAIC — "Ples prirode"                                     */}
       {/* ============================================================ */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-900 to-gray-800 py-20 sm:py-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-white py-20 sm:py-28">
         {/* Subtle mosaic art background */}
         <div className="absolute inset-0 opacity-[0.06]">
           <img
@@ -340,49 +448,39 @@ function HomePage() {
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* Text */}
-            <div>
-              <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-400">
+            <div ref={mosaicTextRef}>
+              <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
                 Art &amp; Heritage
               </p>
-              <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 &ldquo;Ples prirode&rdquo;
               </h2>
-              <p className="mb-1 text-sm font-medium text-blue-300">
+              <p className="mb-4 text-sm font-medium text-blue-500">
                 Dance of Nature &mdash; by Eugen Varzić
               </p>
-              <p className="mb-5 leading-relaxed text-gray-300">
-                Adorning the facade of Hotel Porec, this monumental mosaic was
-                realized by the renowned Travisanutto Mosaics workshop from
-                Spilimberga, Italy &mdash; commissioned by the Dugandžić family,
-                owners of the hotel.
-              </p>
-              <p className="mb-5 leading-relaxed text-gray-300">
-                The composition depicts movement and the natural circle of life,
-                activated by three elements: wind, water, and sunlight, rendered
-                in the distinctive colors of the Istrian climate.
-              </p>
-              <p className="mb-6 leading-relaxed text-gray-400">
-                This work reestablishes monumental mosaic art in public urban
-                spaces after decades of absence, positioning Porec on the global
-                map of mosaic heritage &mdash; a tradition spanning from the 6th
-                through the 20th century.
+              <p className="mb-6 leading-relaxed text-gray-600">
+                A monumental mosaic by the Travisanutto workshop from
+                Spilimberga, Italy &mdash; depicting wind, water, and sunlight
+                in the colors of the Istrian coast. Commissioned by the
+                Dugandžić family, it places Porec on the global map of
+                mosaic heritage.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-1.5 text-sm font-medium text-blue-300">
+                <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
                   Mosaic Art
                 </span>
-                <span className="rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-1.5 text-sm font-medium text-blue-300">
+                <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
                   Travisanutto Workshop
                 </span>
-                <span className="rounded-full border border-blue-400/30 bg-blue-400/10 px-4 py-1.5 text-sm font-medium text-blue-300">
+                <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
                   Istrian Heritage
                 </span>
               </div>
             </div>
 
             {/* Images */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="col-span-2 overflow-hidden rounded-xl">
+            <div ref={mosaicImagesRef} className="grid grid-cols-2 gap-3">
+              <div className="mosaic-clip-img col-span-2 overflow-hidden rounded-xl">
                 <img
                   src="/mozaik/mozaik-section/655025040_18218911303315500_4451419922359182140_n.jpg"
                   alt="Hotel Porec mosaic — full facade view"
@@ -390,7 +488,7 @@ function HomePage() {
                   loading="lazy"
                 />
               </div>
-              <div className="overflow-hidden rounded-xl">
+              <div className="mosaic-clip-img overflow-hidden rounded-xl">
                 <img
                   src="/mozaik/mozaik-section/655244105_18115779043641697_9049057771106596511_n.jpg"
                   alt="Mosaic detail — artistic perspective through trees"
@@ -398,7 +496,7 @@ function HomePage() {
                   loading="lazy"
                 />
               </div>
-              <div className="overflow-hidden rounded-xl">
+              <div className="mosaic-clip-img overflow-hidden rounded-xl">
                 <img
                   src="/mozaik/mozaik-section/655754288_18074886758176866_8702145790916969600_n.jpg"
                   alt="Mosaic — Dance of Nature by Eugen Varzić"
@@ -409,15 +507,16 @@ function HomePage() {
             </div>
           </div>
 
-          {/* Artist quote */}
-          <blockquote className="mx-auto mt-14 max-w-3xl border-l-2 border-blue-400/40 pl-6 text-center italic text-gray-400 sm:border-l-0 sm:pl-0">
+          {/* Artist quote — word-by-word reveal */}
+          <blockquote ref={mosaicQuoteRef} className="mx-auto mt-14 max-w-3xl border-l-2 border-blue-300/40 pl-6 text-left italic text-gray-500 sm:border-l-0 sm:pl-0 sm:text-center">
             <p className="text-lg leading-relaxed sm:text-xl">
-              &ldquo;This demonstrates the need for artists and craftsmen to
-              unite, bringing renewed strength to collaboration that enriches our
-              culture and enhances the visual identity of Porec&rsquo;s
-              seafront.&rdquo;
+              {quoteText.split(" ").map((word, i) => (
+                <span key={i} className="quote-word inline-block opacity-[0.1]">
+                  {word}&nbsp;
+                </span>
+              ))}
             </p>
-            <footer className="mt-4 text-sm font-medium not-italic text-blue-300">
+            <footer className="mt-4 text-sm font-medium not-italic text-blue-600 opacity-0">
               &mdash; Eugen Varzić, Artist
             </footer>
           </blockquote>
@@ -432,7 +531,7 @@ function HomePage() {
         className="bg-gradient-to-b from-blue-50/50 to-white py-20 sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div ref={roomsHeaderRef} className="mb-12 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
               Accommodation
             </p>
@@ -445,7 +544,7 @@ function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div ref={roomsGridRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ROOMS.map((room) => (
               <article
                 key={room.name}
@@ -490,7 +589,7 @@ function HomePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* Image grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div ref={restaurantImagesRef} className="grid grid-cols-2 gap-4">
               <img
                 src="/hotel-site/restaurant/restaurant-1.jpg"
                 alt="Restaurant dining area"
@@ -518,7 +617,7 @@ function HomePage() {
             </div>
 
             {/* Text content */}
-            <div>
+            <div ref={restaurantTextRef}>
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
                 Dining
               </p>
@@ -566,47 +665,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ============================================================ */}
-      {/*  AMENITIES                                                   */}
-      {/* ============================================================ */}
-      <section
-        id="amenities"
-        className="bg-gradient-to-b from-blue-50/50 to-white py-20 sm:py-24"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-              Comfort
-            </p>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Hotel Amenities
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Every room includes these amenities to make your stay comfortable
-              and hassle-free.
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {AMENITIES.map((amenity) => (
-              <div
-                key={amenity.title}
-                className="rounded-xl border border-gray-200/80 bg-white p-6 shadow-sm transition-all hover:shadow-md"
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                  {amenity.icon}
-                </div>
-                <h3 className="mb-2 text-base font-semibold text-gray-900">
-                  {amenity.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-gray-600">
-                  {amenity.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ============================================================ */}
       {/*  CONTACT / CTA                                               */}
@@ -620,20 +678,44 @@ function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50/80 to-blue-100" />
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
+          <div ref={contactHeaderRef} className="mb-12 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-              Get in Touch
+              Best Price Guarantee
             </p>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Book Your Stay
+              Book Direct &amp; Save
             </h2>
             <p className="mx-auto max-w-2xl text-gray-600">
-              Ready to experience Porec? Contact us directly for the best rates
-              and availability.
+              Book directly with us for the lowest rates &mdash; guaranteed lower
+              than any booking platform. No middleman, no hidden fees.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Best price highlight */}
+          <div className="mx-auto mb-10 max-w-xl overflow-hidden rounded-2xl border border-blue-200 bg-white p-8 text-center shadow-lg">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-1.5 text-sm font-semibold text-green-700">
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Best Price Guarantee
+            </div>
+            <p className="mb-2 text-3xl font-bold text-gray-900">
+              Save up to 15%
+            </p>
+            <p className="mb-6 text-sm leading-relaxed text-gray-500">
+              compared to Booking.com, Expedia, and other OTAs.
+              <br />
+              Book directly &mdash; no middleman, no hidden fees.
+            </p>
+            <a
+              href="/book"
+              className="inline-block min-h-[44px] rounded-xl bg-blue-600 px-10 py-4 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
+            >
+              Book Now &mdash; Best Price
+            </a>
+          </div>
+
+          <div ref={contactCardsRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Phone */}
             <div className="rounded-xl border border-gray-200/80 bg-white p-6 text-center shadow-sm">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
@@ -717,17 +799,29 @@ function HomePage() {
             </div>
           </div>
 
-          {/* Map embed placeholder with CTA */}
-          <div className="mt-10 text-center">
-            <a
-              href="mailto:info@hotelporec.com?subject=Reservation%20Inquiry"
-              className="inline-block rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
-            >
-              Send a Reservation Inquiry
-            </a>
+          {/* Google Maps */}
+          <div ref={contactCtaRef} className="mt-10 overflow-hidden rounded-2xl shadow-lg">
+            <iframe
+              title="Hotel Porec location"
+              src="https://maps.google.com/maps?q=Hotel+Porec,+Rade+Koncara+1,+52440+Porec,+Croatia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </section>
+
+      {/* Floating Book Now FAB */}
+      <a
+        href="/book"
+        className={`book-now-fab${showBookBtn ? " book-now-fab--visible" : ""}`}
+      >
+        Book Now
+      </a>
     </main>
   )
 }
