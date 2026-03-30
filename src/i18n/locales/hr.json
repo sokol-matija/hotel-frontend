@@ -94,7 +94,8 @@
     "email": "E-po\u0161ta",
     "address": "Adresa",
     "addressLine1": "Rade Kon\u010dara 1",
-    "addressLine2": "52440 Pore\u010d, Hrvatska"
+    "addressLine2": "52440 Poreč, Hrvatska",
+    "getDirections": "Upute za dolazak"
   },
   "booking": {
     "title": "Rezervirajte smje\u0161taj",

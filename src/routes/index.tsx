@@ -234,7 +234,7 @@ function HomePage() {
 
           {/* Mobile — single hero image */}
           <div className="lg:hidden">
-            <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
+            <div className="hero-img overflow-hidden rounded-2xl shadow-xl opacity-0">
               <img
                 src="/hotel-site/best-images/exterior-3.jpg"
                 alt="Hotel Porec exterior with garden"
@@ -248,14 +248,14 @@ function HomePage() {
             <div className="grid grid-cols-2 gap-3" style={{ height: "min(80vh, 700px)" }}>
               {/* Left column — stacked */}
               <div className="grid grid-rows-3 gap-3">
-                <div className="hero-img row-span-2 overflow-hidden rounded-2xl shadow-xl">
+                <div className="hero-img row-span-2 overflow-hidden rounded-2xl shadow-xl opacity-0">
                   <img
                     src="/hotel-site/best-images/apt-01.jpg"
                     alt="Rooftop whirlpool overlooking Porec at night"
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
+                <div className="hero-img overflow-hidden rounded-2xl shadow-xl opacity-0">
                   <img
                     src="/hotel-site/best-images/apt-13.jpg"
                     alt="Modern hotel room with panoramic view"
@@ -265,14 +265,14 @@ function HomePage() {
               </div>
               {/* Right column — stacked */}
               <div className="grid grid-rows-3 gap-3">
-                <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
+                <div className="hero-img overflow-hidden rounded-2xl shadow-xl opacity-0">
                   <img
                     src="/hotel-site/best-images/655244105_18115779043641697_9049057771106596511_n.jpg"
                     alt="Mosaic artwork on hotel facade"
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                   />
                 </div>
-                <div className="hero-img row-span-2 overflow-hidden rounded-2xl shadow-xl">
+                <div className="hero-img row-span-2 overflow-hidden rounded-2xl shadow-xl opacity-0">
                   <img
                     src="/hotel-site/best-images/exterior-3.jpg"
                     alt="Hotel Porec exterior with garden"
@@ -608,144 +608,105 @@ function HomePage() {
       {/* ============================================================ */}
       {/*  CONTACT / CTA                                               */}
       {/* ============================================================ */}
-      <section id="contact" className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50/80 to-blue-100 py-20 sm:py-24">
-        <div className="absolute inset-0 opacity-[0.06]">
-          <img src="/zemlja_gp_copy.webp" alt="" aria-hidden="true" loading="eager" decoding="async" className="h-full w-full object-cover" />
-        </div>
+      <section id="contact" className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
+          {/* Header */}
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-600">
               {t("contact.label")}
             </p>
-            <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               {t("contact.title")}
             </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
+            <p className="mx-auto max-w-xl text-lg text-gray-500">
               {t("contact.description")}
             </p>
           </div>
 
-          {/* Best price highlight */}
-          <div className="mx-auto mb-10 max-w-xl rounded-2xl border border-blue-200 bg-white p-8 text-center shadow-md">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-1.5 text-sm font-semibold text-green-700">
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              {t("contact.bestPriceGuarantee")}
-            </div>
-            <p className="mb-2 text-3xl font-bold text-gray-900">
-              {t("contact.saveUpTo")}
-            </p>
-            <p className="mb-6 text-sm leading-relaxed text-gray-500">
-              {t("contact.comparedTo")}
-              <br />
-              {t("contact.bookDirectly")}
-            </p>
-            <a
-              href="/book"
-              className="inline-block min-h-[44px] rounded-xl bg-blue-600 px-10 py-4 text-base font-semibold text-white no-underline transition-colors hover:bg-blue-700"
-            >
-              {t("contact.bookNowBestPrice")}
-            </a>
-          </div>
+          {/* Two-column layout */}
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Phone */}
-            <div className="rounded-xl border border-gray-200/80 bg-white p-6 text-center shadow-sm">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                  />
+            {/* Left — Book Direct card */}
+            <div className="flex flex-col justify-center rounded-2xl bg-blue-600 p-10 text-white">
+              <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-white/20 px-4 py-1.5 text-sm font-semibold">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
+                {t("contact.bestPriceGuarantee")}
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">{t("contact.phone")}</h3>
-              <a
-                href="tel:+38552451811"
-                className="text-blue-600 no-underline hover:text-blue-700"
-              >
-                +385 52 451 811
-              </a>
-            </div>
-
-            {/* Email */}
-            <div className="rounded-xl border border-gray-200/80 bg-white p-6 text-center shadow-sm">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 font-semibold text-gray-900">{t("contact.email")}</h3>
-              <a
-                href="mailto:info@hotelporec.com"
-                className="text-blue-600 no-underline hover:text-blue-700"
-              >
-                info@hotelporec.com
-              </a>
-            </div>
-
-            {/* Address */}
-            <div className="rounded-xl border border-gray-200/80 bg-white p-6 text-center shadow-sm sm:col-span-2 lg:col-span-1">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 font-semibold text-gray-900">{t("contact.address")}</h3>
-              <p className="text-sm text-gray-600">
-                {t("contact.addressLine1")}
-                <br />
-                {t("contact.addressLine2")}
+              <p className="mb-3 text-4xl font-bold">{t("contact.saveUpTo")}</p>
+              <p className="mb-8 text-base leading-relaxed text-blue-100">
+                {t("contact.comparedTo")} {t("contact.bookDirectly")}
               </p>
+              <a
+                href="/book"
+                className="inline-block w-fit rounded-xl bg-white px-10 py-4 text-base font-semibold text-blue-600 no-underline transition-colors hover:bg-blue-50"
+              >
+                {t("contact.bookNowBestPrice")}
+              </a>
             </div>
-          </div>
 
-          {/* Google Maps */}
-          <div className="mt-10 overflow-hidden rounded-2xl shadow-md">
-            <iframe
-              title="Hotel Porec location"
-              src="https://maps.google.com/maps?q=Hotel+Porec,+Rade+Koncara+1,+52440+Porec,+Croatia&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="300"
-              style={{ border: 0, display: "block" }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            {/* Right — Contact info */}
+            <div className="flex flex-col gap-6">
+              {/* Phone */}
+              <div className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-gray-400">{t("contact.phone")}</p>
+                  <a href="tel:+38552451811" className="text-lg font-semibold text-gray-900 no-underline hover:text-blue-600">
+                    +385 52 451 811
+                  </a>
+                </div>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-gray-400">{t("contact.email")}</p>
+                  <a href="mailto:info@hotelporec.com" className="text-lg font-semibold text-gray-900 no-underline hover:text-blue-600">
+                    info@hotelporec.com
+                  </a>
+                </div>
+              </div>
+
+              {/* Address + directions */}
+              <div className="flex items-center gap-5 rounded-2xl border border-gray-100 bg-gray-50 p-6">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="mb-0.5 text-xs font-semibold uppercase tracking-widest text-gray-400">{t("contact.address")}</p>
+                  <p className="text-lg font-semibold text-gray-900">
+                    {t("contact.addressLine1")}
+                  </p>
+                  <p className="text-sm text-gray-500">{t("contact.addressLine2")}</p>
+                  <a
+                    href="https://maps.google.com/maps?q=Hotel+Porec,+Rade+Koncara+1,+52440+Porec,+Croatia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-blue-600 no-underline hover:text-blue-700"
+                  >
+                    {t("contact.getDirections")}
+                    <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

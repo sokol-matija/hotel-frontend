@@ -94,7 +94,8 @@
     "email": "E-Mail",
     "address": "Adresse",
     "addressLine1": "Rade Koncara 1",
-    "addressLine2": "52440 Porec, Kroatien"
+    "addressLine2": "52440 Porec, Kroatien",
+    "getDirections": "Route anzeigen"
   },
   "booking": {
     "title": "Aufenthalt buchen",
