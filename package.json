@@ -1,5 +1,5 @@
 {
-  "name": "create",
+  "name": "hotel-frontend",
   "private": true,
   "type": "module",
   "imports": {
@@ -9,7 +9,11 @@
     "dev": "vite dev --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:run": "vitest run",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "validate": "tsc --noEmit && vite build"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
