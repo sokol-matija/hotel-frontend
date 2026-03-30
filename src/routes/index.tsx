@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Testimonials from "@/components/Testimonials"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -81,6 +82,12 @@ function HomePage() {
   const [showBookBtn, setShowBookBtn] = useState(false)
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      gsap.set("[class*='opacity-0']", { opacity: 1 })
+      return
+    }
+
     const ctx = gsap.context(() => {
       const ease = "power3.out"
       const softEase = "power2.out"
@@ -242,7 +249,7 @@ function HomePage() {
         <div className="absolute inset-0">
           <img
             ref={heroBgRef}
-            src="/mozaik_gp1.png"
+            src="/mozaik_gp1.webp"
             alt=""
             className="absolute bottom-0 right-0 h-[70%] w-auto object-contain opacity-[0.12] will-change-transform sm:opacity-[0.15]"
           />
@@ -439,7 +446,7 @@ function HomePage() {
         {/* Subtle mosaic art background */}
         <div className="absolute inset-0 opacity-[0.06]">
           <img
-            src="/mozaik_gp1.png"
+            src="/mozaik_gp1.webp"
             alt=""
             className="h-full w-full object-cover"
           />
@@ -665,6 +672,11 @@ function HomePage() {
         </div>
       </section>
 
+
+      {/* ============================================================ */}
+      {/*  TESTIMONIALS                                                */}
+      {/* ============================================================ */}
+      <Testimonials />
 
       {/* ============================================================ */}
       {/*  CONTACT / CTA                                               */}
