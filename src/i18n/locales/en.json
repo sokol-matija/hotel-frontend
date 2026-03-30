@@ -1,0 +1,160 @@
+{
+  "header": {
+    "rooms": "Rooms",
+    "restaurant": "Restaurant",
+    "about": "About",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "tagline": "In the Center \u2022 Open Year-Round",
+    "description": "A privately owned Mediterranean retreat on the Istrian coast, where Adriatic charm meets genuine Croatian hospitality.",
+    "exploreRooms": "Explore Rooms",
+    "bookYourStay": "Book Your Stay",
+    "discover": "Discover"
+  },
+  "about": {
+    "label": "Since 1997",
+    "title": "Your Home by the Adriatic",
+    "description1": "Hotel Porec is a privately owned hotel located beside the Marina in the heart of Porec, one of the most beautiful coastal towns on the Istrian peninsula. We have been welcoming guests year-round since 1997.",
+    "description2": "Our rooms offer all the comforts you need: air conditioning, private balcony, satellite TV, minibar, in-room safe, free Wi-Fi, and a modern shower. Whether you are here for a family vacation, a romantic getaway, or business travel, we make you feel at home.",
+    "tagMarina": "Beside the Marina",
+    "tagYearRound": "Year-round",
+    "tagFamilyOwned": "Family owned"
+  },
+  "mosaic": {
+    "label": "Art & Heritage",
+    "title": "\"Ples prirode\"",
+    "subtitle": "Dance of Nature \u2014 by Eugen Varzi\u0107",
+    "description": "A monumental mosaic by the Travisanutto workshop from Spilimberga, Italy \u2014 depicting wind, water, and sunlight in the colors of the Istrian coast. Commissioned by the Dugandzic family, it places Porec on the global map of mosaic heritage.",
+    "tagMosaic": "Mosaic Art",
+    "tagWorkshop": "Travisanutto Workshop",
+    "tagHeritage": "Istrian Heritage",
+    "quote": "\u201CThis demonstrates the need for artists and craftsmen to unite, bringing renewed strength to collaboration that enriches our culture and enhances the visual identity of Porec\u2019s seafront.\u201D",
+    "quoteAuthor": "Eugen Varzi\u0107, Artist"
+  },
+  "rooms": {
+    "label": "Accommodation",
+    "title": "Rooms & Suites",
+    "description": "From our premium Apartment 401 with whirlpool to comfortable standard rooms, every space is designed for relaxation.",
+    "apartment401": {
+      "name": "Apartment 401",
+      "description": "Spacious top-floor apartment with whirlpool bath, separate living area, and panoramic views.",
+      "features": ["Whirlpool", "Living area", "Balcony", "Minibar"]
+    },
+    "superior": {
+      "name": "Superior Room",
+      "description": "Elegantly appointed room with premium furnishings, generous space, and modern comfort.",
+      "features": ["A/C", "SAT-TV", "Safe", "Balcony"]
+    },
+    "family": {
+      "name": "Family Room",
+      "description": "Designed for families, with extra space and flexible sleeping arrangements for a comfortable stay.",
+      "features": ["Extra beds", "A/C", "Minibar", "Wi-Fi"]
+    },
+    "triple": {
+      "name": "Triple Room",
+      "description": "Comfortable room for three guests with all essential amenities and a private balcony.",
+      "features": ["3 beds", "Balcony", "Shower", "SAT-TV"]
+    },
+    "standard": {
+      "name": "Standard Room",
+      "description": "Clean, cozy room with everything you need for a restful stay in Porec.",
+      "features": ["A/C", "Wi-Fi", "Shower", "Safe"]
+    },
+    "flex": {
+      "name": "Flex Room",
+      "description": "Versatile room that adapts to solo travelers or couples with flexible configuration.",
+      "features": ["Flexible layout", "A/C", "Minibar", "Balcony"]
+    }
+  },
+  "restaurant": {
+    "label": "Dining",
+    "title": "Our Restaurant",
+    "description1": "Start every morning with a generous breakfast buffet featuring local and international selections. Fresh bread, Istrian cheeses and cold cuts, seasonal fruits, pastries, and more.",
+    "description2": "For lunch and dinner, our flexible menu offers Mediterranean and Croatian cuisine prepared with fresh, locally sourced ingredients. Enjoy your meal on our terrace with views toward the sea.",
+    "hoursTitle": "Dining hours",
+    "breakfast": "Breakfast buffet",
+    "breakfastTime": "07:00 \u2013 10:00",
+    "lunch": "Lunch",
+    "lunchTime": "12:00 \u2013 15:00",
+    "dinner": "Dinner",
+    "dinnerTime": "18:00 \u2013 22:00"
+  },
+  "contact": {
+    "label": "Best Price Guarantee",
+    "title": "Book Direct & Save",
+    "description": "Book directly with us for the lowest rates \u2014 guaranteed lower than any booking platform. No middleman, no hidden fees.",
+    "bestPriceGuarantee": "Best Price Guarantee",
+    "saveUpTo": "Save up to 15%",
+    "comparedTo": "compared to Booking.com, Expedia, and other OTAs.",
+    "bookDirectly": "Book directly \u2014 no middleman, no hidden fees.",
+    "bookNowBestPrice": "Book Now \u2014 Best Price",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "addressLine1": "Rade Koncara 1",
+    "addressLine2": "52440 Porec, Croatia"
+  },
+  "booking": {
+    "title": "Book Your Stay",
+    "subtitle": "Best price guaranteed \u2014 book directly and save up to 15%.",
+    "stayDates": "Stay dates",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "nightCount_one": "{{count}} night",
+    "nightCount_other": "{{count}} nights",
+    "guestsAndRoom": "Guests & Room",
+    "adults": "Adults",
+    "children": "Children",
+    "roomType": "Room type",
+    "yourDetails": "Your details",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "specialRequests": "Special requests",
+    "specialRequestsPlaceholder": "Early check-in, extra bed, dietary needs...",
+    "sendBookingRequest": "Send Booking Request",
+    "emailNote": "Opens your email client. We reply within 2 hours during business hours.",
+    "backToHotel": "\u2190 Back to Hotel Porec",
+    "roomTypes": {
+      "apartment-401": "Apartment 401 (Whirlpool)",
+      "superior": "Superior Room",
+      "family": "Family Room",
+      "triple": "Triple Room",
+      "standard": "Standard Room",
+      "flex": "Flex Room",
+      "no-preference": "No preference"
+    },
+    "emailSubject": "Reservation Inquiry \u2014 {{checkIn}} to {{checkOut}}",
+    "emailBodyName": "Name: {{name}}",
+    "emailBodyEmail": "Email: {{email}}",
+    "emailBodyPhone": "Phone: {{phone}}",
+    "emailBodyCheckIn": "Check-in: {{checkIn}}",
+    "emailBodyCheckOut": "Check-out: {{checkOut}} ({{nights}})",
+    "emailBodyGuests": "Guests: {{guests}}",
+    "emailBodyRoom": "Room preference: {{room}}",
+    "emailBodyRequests": "Special requests:\n{{requests}}",
+    "na": "N/A"
+  },
+  "footer": {
+    "description": "Privately owned since 1997. Located beside the Marina in the heart of Porec, Croatia. Open year-round.",
+    "explore": "Explore",
+    "roomsAndSuites": "Rooms & Suites",
+    "restaurant": "Restaurant",
+    "amenities": "Amenities",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "information": "Information",
+    "checkIn": "Check-in: 14:00",
+    "checkOut": "Check-out: 10:00",
+    "freeWifi": "Free Wi-Fi",
+    "freeParking": "Free parking",
+    "copyright": "\u00a9 {{year}} Hotel Porec. All rights reserved."
+  },
+  "common": {
+    "hotelPorec": "Hotel Porec",
+    "required": "*"
+  }
+}

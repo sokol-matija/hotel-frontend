@@ -1,0 +1,161 @@
+{
+  "header": {
+    "rooms": "Sobe",
+    "restaurant": "Restoran",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "bookNow": "Rezerviraj"
+  },
+  "hero": {
+    "tagline": "U centru \u2022 Otvoreno cijele godine",
+    "description": "Privatni mediteranski hotel na istarskoj obali, gdje jadranski \u0161arm susre\u0107e iskreno hrvatsko gostoprimstvo.",
+    "exploreRooms": "Pogledaj sobe",
+    "bookYourStay": "Rezerviraj smje\u0161taj",
+    "discover": "Otkrijte"
+  },
+  "about": {
+    "label": "Od 1997.",
+    "title": "Va\u0161 dom uz Jadran",
+    "description1": "Hotel Pore\u010d je privatni hotel smje\u0161ten uz Marinu u srcu Pore\u010da, jednog od najljep\u0161ih obalnih gradova na istarskom poluotoku. Goste do\u010dekujemo cijele godine od 1997.",
+    "description2": "Na\u0161e sobe nude sve \u0161to vam treba: klimatizaciju, privatni balkon, satelitsku TV, minibar, sef, besplatan Wi-Fi i modernu tu\u0161 kabinu. Bilo da ste tu na obiteljskom odmoru, romanti\u010dnom bijegu ili poslovnom putu \u2014 kod nas se osje\u0107ate kao doma.",
+    "tagMarina": "Uz Marinu",
+    "tagYearRound": "Cijele godine",
+    "tagFamilyOwned": "Obiteljski hotel"
+  },
+  "mosaic": {
+    "label": "Umjetnost i ba\u0161tina",
+    "title": "\u201EPles prirode\u201C",
+    "subtitle": "Ples prirode \u2014 Eugen Varzi\u0107",
+    "description": "Monumentalni mozaik radionice Travisanutto iz Spilimberga, Italija \u2014 prikazuje vjetar, vodu i sun\u010devu svjetlost u bojama istarske obale. Naru\u010den od obitelji Dugan\u0171\u017ei\u0107, smje\u0161ta Pore\u010d na svjetsku kartu mozai\u010dne ba\u0161tine.",
+    "tagMosaic": "Mozai\u010dna umjetnost",
+    "tagWorkshop": "Radionica Travisanutto",
+    "tagHeritage": "Istarska ba\u0161tina",
+    "quote": "\u201EOvo pokazuje potrebu da se umjetnici i obrtnici ujedine, donose\u0107i obnovljenu snagu suradnji koja oboga\u0107uje na\u0161u kulturu i unapre\u0111uje vizualni identitet pore\u010dke rive.\u201C",
+    "quoteAuthor": "Eugen Varzi\u0107, umjetnik"
+  },
+  "rooms": {
+    "label": "Smje\u0161taj",
+    "title": "Sobe i apartmani",
+    "description": "Od premijskog Apartmana 401 s whirlpoolom do udobnih standardnih soba \u2014 svaki prostor je osmi\u0161ljen za opustanje.",
+    "apartment401": {
+      "name": "Apartman 401",
+      "description": "Prostrani apartman na zadnjem katu s whirlpool kadom, odvojenim dnevnim boravkom i panoramskim pogledom.",
+      "features": ["Whirlpool", "Dnevni boravak", "Balkon", "Minibar"]
+    },
+    "superior": {
+      "name": "Superior soba",
+      "description": "Elegantno ure\u0111ena soba s premium namje\u0161tajem, velikodu\u0161nim prostorom i modernim komforom.",
+      "features": ["Klima", "SAT-TV", "Sef", "Balkon"]
+    },
+    "family": {
+      "name": "Obiteljska soba",
+      "description": "Dizajnirana za obitelji, s dodatnim prostorom i fleksibilnim rasporedom le\u017eajeva za ugodan boravak.",
+      "features": ["Dodatni le\u017eajevi", "Klima", "Minibar", "Wi-Fi"]
+    },
+    "triple": {
+      "name": "Trokrevetna soba",
+      "description": "Udobna soba za tri gosta sa svim potrebnim sadr\u017eajima i privatnim balkonom.",
+      "features": ["3 le\u017eaja", "Balkon", "Tu\u0161", "SAT-TV"]
+    },
+    "standard": {
+      "name": "Standardna soba",
+      "description": "\u010cista i ugodna soba sa svime \u0161to vam treba za odmoran boravak u Pore\u010du.",
+      "features": ["Klima", "Wi-Fi", "Tu\u0161", "Sef"]
+    },
+    "flex": {
+      "name": "Flex soba",
+      "description": "Svestrana soba koja se prilago\u0111ava solo putnicima ili parovima s fleksibilnim rasporedom.",
+      "features": ["Fleksibilan raspored", "Klima", "Minibar", "Balkon"]
+    }
+  },
+  "restaurant": {
+    "label": "Gastronomija",
+    "title": "Na\u0161 restoran",
+    "description1": "Svako jutro zapo\u010dnite bogat\u0161im doru\u010dkom na bazi bufeta s lokalnim i me\u0111unarodnim specijalitetima. Svje\u017e kruh, istarski sirevi i naresci, sezonsko vo\u0107e, peciva i jo\u0161 mnogo toga.",
+    "description2": "Za ru\u010dak i ve\u010deru, na\u0161 fleksibilan jelovnik nudi mediteransku i hrvatsku kuhinju pripremljenu od svje\u017eih, lokalno nabavljenih namirnica. U\u017eivajte u obroku na na\u0161oj terasi s pogledom prema moru.",
+    "hoursTitle": "Radno vrijeme",
+    "breakfast": "Doru\u010dak (buffet)",
+    "breakfastTime": "07:00 \u2013 10:00",
+    "lunch": "Ru\u010dak",
+    "lunchTime": "12:00 \u2013 15:00",
+    "dinner": "Ve\u010dera",
+    "dinnerTime": "18:00 \u2013 22:00"
+  },
+  "contact": {
+    "label": "Jamstvo najbolje cijene",
+    "title": "Rezervirajte direktno i u\u0161tedite",
+    "description": "Rezervirajte direktno kod nas za najni\u017ee cijene \u2014 zajam\u010deno ni\u017ee od bilo koje platforme za rezervacije. Bez posrednika, bez skrivenih naknada.",
+    "bestPriceGuarantee": "Jamstvo najbolje cijene",
+    "saveUpTo": "U\u0161tedite do 15%",
+    "comparedTo": "u usporedbi s Booking.com, Expedijom i drugim OTA platformama.",
+    "bookDirectly": "Rezervirajte direktno \u2014 bez posrednika, bez skrivenih naknada.",
+    "bookNowBestPrice": "Rezerviraj \u2014 Najbolja cijena",
+    "phone": "Telefon",
+    "email": "E-po\u0161ta",
+    "address": "Adresa",
+    "addressLine1": "Rade Kon\u010dara 1",
+    "addressLine2": "52440 Pore\u010d, Hrvatska"
+  },
+  "booking": {
+    "title": "Rezervirajte smje\u0161taj",
+    "subtitle": "Zajam\u010dena najbolja cijena \u2014 rezervirajte direktno i u\u0161tedite do 15%.",
+    "stayDates": "Datumi boravka",
+    "checkIn": "Prijava",
+    "checkOut": "Odjava",
+    "nightCount_one": "{{count}} no\u0107",
+    "nightCount_few": "{{count}} no\u0107i",
+    "nightCount_other": "{{count}} no\u0107i",
+    "guestsAndRoom": "Gosti i soba",
+    "adults": "Odrasli",
+    "children": "Djeca",
+    "roomType": "Tip sobe",
+    "yourDetails": "Va\u0161i podaci",
+    "firstName": "Ime",
+    "lastName": "Prezime",
+    "emailLabel": "E-po\u0161ta",
+    "phoneLabel": "Telefon",
+    "specialRequests": "Posebni zahtjevi",
+    "specialRequestsPlaceholder": "Rani check-in, dodatni le\u017eaj, prehrambene potrebe...",
+    "sendBookingRequest": "Po\u0161alji upit za rezervaciju",
+    "emailNote": "Otvara va\u0161 mail klijent. Odgovaramo unutar 2 sata tijekom radnog vremena.",
+    "backToHotel": "\u2190 Natrag na Hotel Pore\u010d",
+    "roomTypes": {
+      "apartment-401": "Apartman 401 (Whirlpool)",
+      "superior": "Superior soba",
+      "family": "Obiteljska soba",
+      "triple": "Trokrevetna soba",
+      "standard": "Standardna soba",
+      "flex": "Flex soba",
+      "no-preference": "Bez preferencije"
+    },
+    "emailSubject": "Upit za rezervaciju \u2014 {{checkIn}} do {{checkOut}}",
+    "emailBodyName": "Ime: {{name}}",
+    "emailBodyEmail": "E-po\u0161ta: {{email}}",
+    "emailBodyPhone": "Telefon: {{phone}}",
+    "emailBodyCheckIn": "Prijava: {{checkIn}}",
+    "emailBodyCheckOut": "Odjava: {{checkOut}} ({{nights}})",
+    "emailBodyGuests": "Gosti: {{guests}}",
+    "emailBodyRoom": "Preferirana soba: {{room}}",
+    "emailBodyRequests": "Posebni zahtjevi:\n{{requests}}",
+    "na": "N/A"
+  },
+  "footer": {
+    "description": "Privatni hotel od 1997. Smje\u0161ten uz Marinu u srcu Pore\u010da, Hrvatska. Otvoreno cijele godine.",
+    "explore": "Istra\u017eite",
+    "roomsAndSuites": "Sobe i apartmani",
+    "restaurant": "Restoran",
+    "amenities": "Sadr\u017eaji",
+    "aboutUs": "O nama",
+    "contact": "Kontakt",
+    "information": "Informacije",
+    "checkIn": "Prijava: 14:00",
+    "checkOut": "Odjava: 10:00",
+    "freeWifi": "Besplatan Wi-Fi",
+    "freeParking": "Besplatan parking",
+    "copyright": "\u00a9 {{year}} Hotel Pore\u010d. Sva prava pridr\u017eana."
+  },
+  "common": {
+    "hotelPorec": "Hotel Pore\u010d",
+    "required": "*"
+  }
+}

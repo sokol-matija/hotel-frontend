@@ -1,14 +1,17 @@
 import { Link } from "@tanstack/react-router"
 import { useCallback, useEffect, useRef, useState } from "react"
+import { useTranslation } from "react-i18next"
+import { LanguageSwitcher } from "@/components/LanguageSwitcher"
 
-const NAV_ITEMS = [
-  { label: "Rooms", href: "#rooms" },
-  { label: "Restaurant", href: "#restaurant" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+const NAV_KEYS = [
+  { key: "header.rooms", href: "#rooms" },
+  { key: "header.restaurant", href: "#restaurant" },
+  { key: "header.about", href: "#about" },
+  { key: "header.contact", href: "#contact" },
 ] as const
 
 export default function Header() {
+  const { t } = useTranslation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -50,26 +53,27 @@ export default function Header() {
             className="h-10 w-auto"
           />
           <span className="text-lg font-bold tracking-tight text-gray-900">
-            Hotel Porec
+            {t("common.hotelPorec")}
           </span>
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-8 md:flex">
-          {NAV_ITEMS.map((item) => (
+          {NAV_KEYS.map((item) => (
             <a
               key={item.href}
               href={item.href}
               className="text-sm font-medium text-gray-600 no-underline transition-colors hover:text-blue-600"
             >
-              {item.label}
+              {t(item.key)}
             </a>
           ))}
+          <LanguageSwitcher />
           <a
             href="#contact"
             className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white no-underline shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
           >
-            Book Now
+            {t("header.bookNow")}
           </a>
         </div>
 
@@ -115,22 +119,25 @@ export default function Header() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="border-t border-blue-50 bg-white px-4 pb-4 pt-2 md:hidden">
-          {NAV_ITEMS.map((item) => (
+          {NAV_KEYS.map((item) => (
             <a
               key={item.href}
               href={item.href}
               className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 no-underline transition-colors hover:bg-blue-50 hover:text-blue-600"
               onClick={() => setMobileOpen(false)}
             >
-              {item.label}
+              {t(item.key)}
             </a>
           ))}
+          <div className="px-3 py-2.5">
+            <LanguageSwitcher />
+          </div>
           <a
             href="#contact"
             className="mt-2 block rounded-lg bg-blue-600 px-3 py-2.5 text-center text-sm font-semibold text-white no-underline transition-colors hover:bg-blue-700"
             onClick={() => setMobileOpen(false)}
           >
-            Book Now
+            {t("header.bookNow")}
           </a>
         </div>
       )}

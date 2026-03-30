@@ -1,0 +1,160 @@
+{
+  "header": {
+    "rooms": "Zimmer",
+    "restaurant": "Restaurant",
+    "about": "\u00dcber uns",
+    "contact": "Kontakt",
+    "bookNow": "Jetzt buchen"
+  },
+  "hero": {
+    "tagline": "Im Zentrum \u2022 Ganzj\u00e4hrig ge\u00f6ffnet",
+    "description": "Ein privates mediterranes Refugium an der istrischen K\u00fcste, wo adriatischer Charme auf echte kroatische Gastfreundschaft trifft.",
+    "exploreRooms": "Zimmer entdecken",
+    "bookYourStay": "Aufenthalt buchen",
+    "discover": "Entdecken"
+  },
+  "about": {
+    "label": "Seit 1997",
+    "title": "Ihr Zuhause an der Adria",
+    "description1": "Das Hotel Pore\u010d ist ein privat gef\u00fchrtes Hotel neben der Marina im Herzen von Pore\u010d, einer der sch\u00f6nsten K\u00fcstenst\u00e4dte auf der istrischen Halbinsel. Seit 1997 empfangen wir G\u00e4ste das ganze Jahr \u00fcber.",
+    "description2": "Unsere Zimmer bieten allen Komfort, den Sie brauchen: Klimaanlage, privater Balkon, Satelliten-TV, Minibar, Zimmersafe, kostenloses WLAN und eine moderne Dusche. Ob Familienurlaub, romantischer Kurztrip oder Gesch\u00e4ftsreise \u2014 bei uns f\u00fchlen Sie sich wie zu Hause.",
+    "tagMarina": "Neben der Marina",
+    "tagYearRound": "Ganzj\u00e4hrig",
+    "tagFamilyOwned": "Familienhotel"
+  },
+  "mosaic": {
+    "label": "Kunst & Erbe",
+    "title": "\u201EPles prirode\u201C",
+    "subtitle": "Tanz der Natur \u2014 von Eugen Varzi\u0107",
+    "description": "Ein monumentales Mosaik der Werkstatt Travisanutto aus Spilimberga, Italien \u2014 es zeigt Wind, Wasser und Sonnenlicht in den Farben der istrischen K\u00fcste. Im Auftrag der Familie Dugan\u0111\u017ei\u0107 setzt es Pore\u010d auf die Weltkarte des Mosaik-Erbes.",
+    "tagMosaic": "Mosaikkunst",
+    "tagWorkshop": "Werkstatt Travisanutto",
+    "tagHeritage": "Istrisches Erbe",
+    "quote": "\u201EDies zeigt die Notwendigkeit, dass K\u00fcnstler und Handwerker sich vereinen und der Zusammenarbeit neue Kraft verleihen, die unsere Kultur bereichert und die visuelle Identit\u00e4t der Uferpromenade von Pore\u010d st\u00e4rkt.\u201C",
+    "quoteAuthor": "Eugen Varzi\u0107, K\u00fcnstler"
+  },
+  "rooms": {
+    "label": "Unterkunft",
+    "title": "Zimmer & Suiten",
+    "description": "Vom Premium-Apartment 401 mit Whirlpool bis zu komfortablen Standardzimmern \u2014 jeder Raum ist f\u00fcr Entspannung gestaltet.",
+    "apartment401": {
+      "name": "Apartment 401",
+      "description": "Ger\u00e4umiges Dachgeschoss-Apartment mit Whirlpool-Badewanne, separatem Wohnbereich und Panoramablick.",
+      "features": ["Whirlpool", "Wohnbereich", "Balkon", "Minibar"]
+    },
+    "superior": {
+      "name": "Superior Zimmer",
+      "description": "Elegant eingerichtetes Zimmer mit hochwertiger Ausstattung, gro\u00dfz\u00fcgigem Raum und modernem Komfort.",
+      "features": ["Klimaanlage", "SAT-TV", "Safe", "Balkon"]
+    },
+    "family": {
+      "name": "Familienzimmer",
+      "description": "F\u00fcr Familien konzipiert, mit zus\u00e4tzlichem Platz und flexiblen Schlafm\u00f6glichkeiten f\u00fcr einen komfortablen Aufenthalt.",
+      "features": ["Zustellbetten", "Klimaanlage", "Minibar", "WLAN"]
+    },
+    "triple": {
+      "name": "Dreibettzimmer",
+      "description": "Komfortables Zimmer f\u00fcr drei G\u00e4ste mit allen wichtigen Annehmlichkeiten und privatem Balkon.",
+      "features": ["3 Betten", "Balkon", "Dusche", "SAT-TV"]
+    },
+    "standard": {
+      "name": "Standardzimmer",
+      "description": "Sauberes, gem\u00fctliches Zimmer mit allem, was Sie f\u00fcr einen erholsamen Aufenthalt in Pore\u010d brauchen.",
+      "features": ["Klimaanlage", "WLAN", "Dusche", "Safe"]
+    },
+    "flex": {
+      "name": "Flex Zimmer",
+      "description": "Vielseitiges Zimmer, das sich an Alleinreisende oder Paare mit flexibler Konfiguration anpasst.",
+      "features": ["Flexibles Layout", "Klimaanlage", "Minibar", "Balkon"]
+    }
+  },
+  "restaurant": {
+    "label": "Gastronomie",
+    "title": "Unser Restaurant",
+    "description1": "Beginnen Sie jeden Morgen mit einem reichhaltigen Fr\u00fchst\u00fccksbuffet mit lokalen und internationalen Spezialit\u00e4ten. Frisches Brot, istrische K\u00e4se und Aufschnitt, saisonales Obst, Geb\u00e4ck und vieles mehr.",
+    "description2": "Zum Mittag- und Abendessen bietet unsere flexible Speisekarte mediterrane und kroatische K\u00fcche aus frischen, regionalen Zutaten. Genie\u00dfen Sie Ihre Mahlzeit auf unserer Terrasse mit Blick aufs Meer.",
+    "hoursTitle": "\u00d6ffnungszeiten",
+    "breakfast": "Fr\u00fchst\u00fccksbuffet",
+    "breakfastTime": "07:00 \u2013 10:00",
+    "lunch": "Mittagessen",
+    "lunchTime": "12:00 \u2013 15:00",
+    "dinner": "Abendessen",
+    "dinnerTime": "18:00 \u2013 22:00"
+  },
+  "contact": {
+    "label": "Bestpreisgarantie",
+    "title": "Direkt buchen & sparen",
+    "description": "Buchen Sie direkt bei uns f\u00fcr die niedrigsten Preise \u2014 garantiert g\u00fcnstiger als jede Buchungsplattform. Kein Vermittler, keine versteckten Geb\u00fchren.",
+    "bestPriceGuarantee": "Bestpreisgarantie",
+    "saveUpTo": "Bis zu 15% sparen",
+    "comparedTo": "im Vergleich zu Booking.com, Expedia und anderen OTAs.",
+    "bookDirectly": "Direkt buchen \u2014 kein Vermittler, keine versteckten Geb\u00fchren.",
+    "bookNowBestPrice": "Jetzt buchen \u2014 Bestpreis",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "addressLine1": "Rade Koncara 1",
+    "addressLine2": "52440 Porec, Kroatien"
+  },
+  "booking": {
+    "title": "Aufenthalt buchen",
+    "subtitle": "Bestpreis garantiert \u2014 buchen Sie direkt und sparen Sie bis zu 15%.",
+    "stayDates": "Aufenthaltsdaten",
+    "checkIn": "Anreise",
+    "checkOut": "Abreise",
+    "nightCount_one": "{{count}} Nacht",
+    "nightCount_other": "{{count}} N\u00e4chte",
+    "guestsAndRoom": "G\u00e4ste & Zimmer",
+    "adults": "Erwachsene",
+    "children": "Kinder",
+    "roomType": "Zimmertyp",
+    "yourDetails": "Ihre Daten",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "emailLabel": "E-Mail",
+    "phoneLabel": "Telefon",
+    "specialRequests": "Besondere W\u00fcnsche",
+    "specialRequestsPlaceholder": "Fr\u00fcher Check-in, Zustellbett, Ern\u00e4hrungsbed\u00fcrfnisse...",
+    "sendBookingRequest": "Buchungsanfrage senden",
+    "emailNote": "\u00d6ffnet Ihr E-Mail-Programm. Wir antworten innerhalb von 2 Stunden w\u00e4hrend der Gesch\u00e4ftszeiten.",
+    "backToHotel": "\u2190 Zur\u00fcck zum Hotel Porec",
+    "roomTypes": {
+      "apartment-401": "Apartment 401 (Whirlpool)",
+      "superior": "Superior Zimmer",
+      "family": "Familienzimmer",
+      "triple": "Dreibettzimmer",
+      "standard": "Standardzimmer",
+      "flex": "Flex Zimmer",
+      "no-preference": "Keine Pr\u00e4ferenz"
+    },
+    "emailSubject": "Reservierungsanfrage \u2014 {{checkIn}} bis {{checkOut}}",
+    "emailBodyName": "Name: {{name}}",
+    "emailBodyEmail": "E-Mail: {{email}}",
+    "emailBodyPhone": "Telefon: {{phone}}",
+    "emailBodyCheckIn": "Anreise: {{checkIn}}",
+    "emailBodyCheckOut": "Abreise: {{checkOut}} ({{nights}})",
+    "emailBodyGuests": "G\u00e4ste: {{guests}}",
+    "emailBodyRoom": "Zimmerwunsch: {{room}}",
+    "emailBodyRequests": "Besondere W\u00fcnsche:\n{{requests}}",
+    "na": "k.A."
+  },
+  "footer": {
+    "description": "Privat gef\u00fchrt seit 1997. Neben der Marina im Herzen von Porec, Kroatien. Ganzj\u00e4hrig ge\u00f6ffnet.",
+    "explore": "Entdecken",
+    "roomsAndSuites": "Zimmer & Suiten",
+    "restaurant": "Restaurant",
+    "amenities": "Annehmlichkeiten",
+    "aboutUs": "\u00dcber uns",
+    "contact": "Kontakt",
+    "information": "Information",
+    "checkIn": "Check-in: 14:00",
+    "checkOut": "Check-out: 10:00",
+    "freeWifi": "Kostenloses WLAN",
+    "freeParking": "Kostenloser Parkplatz",
+    "copyright": "\u00a9 {{year}} Hotel Porec. Alle Rechte vorbehalten."
+  },
+  "common": {
+    "hotelPorec": "Hotel Porec",
+    "required": "*"
+  }
+}

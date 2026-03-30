@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { createFileRoute } from "@tanstack/react-router"
+import { useTranslation } from "react-i18next"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Testimonials from "@/components/Testimonials"
@@ -9,52 +10,16 @@ gsap.registerPlugin(ScrollTrigger)
 export const Route = createFileRoute("/")({ component: HomePage })
 
 /* ------------------------------------------------------------------ */
-/*  Room data                                                         */
+/*  Room keys (for i18n lookup)                                       */
 /* ------------------------------------------------------------------ */
 
-const ROOMS = [
-  {
-    name: "Apartment 401",
-    description:
-      "Spacious top-floor apartment with whirlpool bath, separate living area, and panoramic views.",
-    image: "/hotel-site/apartment/apt-01.jpg",
-    features: ["Whirlpool", "Living area", "Balcony", "Minibar"],
-  },
-  {
-    name: "Superior Room",
-    description:
-      "Elegantly appointed room with premium furnishings, generous space, and modern comfort.",
-    image: "/hotel-site/rooms/superior-1.jpg",
-    features: ["A/C", "SAT-TV", "Safe", "Balcony"],
-  },
-  {
-    name: "Family Room",
-    description:
-      "Designed for families, with extra space and flexible sleeping arrangements for a comfortable stay.",
-    image: "/hotel-site/rooms/family-2.jpg",
-    features: ["Extra beds", "A/C", "Minibar", "Wi-Fi"],
-  },
-  {
-    name: "Triple Room",
-    description:
-      "Comfortable room for three guests with all essential amenities and a private balcony.",
-    image: "/hotel-site/rooms/triple-1.jpg",
-    features: ["3 beds", "Balcony", "Shower", "SAT-TV"],
-  },
-  {
-    name: "Standard Room",
-    description:
-      "Clean, cozy room with everything you need for a restful stay in Porec.",
-    image: "/hotel-site/rooms/standard-1.jpg",
-    features: ["A/C", "Wi-Fi", "Shower", "Safe"],
-  },
-  {
-    name: "Flex Room",
-    description:
-      "Versatile room that adapts to solo travelers or couples with flexible configuration.",
-    image: "/hotel-site/rooms/flex-1.jpg",
-    features: ["Flexible layout", "A/C", "Minibar", "Balcony"],
-  },
+const ROOM_KEYS = [
+  { key: "apartment401", image: "/hotel-site/apartment/apt-01.jpg" },
+  { key: "superior", image: "/hotel-site/rooms/superior-1.jpg" },
+  { key: "family", image: "/hotel-site/rooms/family-2.jpg" },
+  { key: "triple", image: "/hotel-site/rooms/triple-1.jpg" },
+  { key: "standard", image: "/hotel-site/rooms/standard-1.jpg" },
+  { key: "flex", image: "/hotel-site/rooms/flex-1.jpg" },
 ] as const
 
 /* ------------------------------------------------------------------ */
@@ -62,6 +27,7 @@ const ROOMS = [
 /* ------------------------------------------------------------------ */
 
 function HomePage() {
+  const { t } = useTranslation()
   const mainRef = useRef<HTMLElement>(null)
   const heroRef = useRef<HTMLDivElement>(null)
   const heroImagesRef = useRef<HTMLDivElement>(null)
@@ -236,8 +202,7 @@ function HomePage() {
     return () => ctx.revert()
   }, [])
 
-  const quoteText =
-    "\u201CThis demonstrates the need for artists and craftsmen to unite, bringing renewed strength to collaboration that enriches our culture and enhances the visual identity of Porec\u2019s seafront.\u201D"
+  const quoteText = t("mosaic.quote")
 
   return (
     <main ref={mainRef}>
@@ -266,24 +231,23 @@ function HomePage() {
               className="mb-8 h-20 w-auto opacity-0 sm:h-28 lg:h-36"
             />
             <p className="mb-4 text-base font-medium tracking-wide text-blue-600/80 opacity-0 sm:text-lg">
-              In the Center &bull; Open Year-Round
+              {t("hero.tagline")}
             </p>
             <p className="mb-10 max-w-lg text-base leading-relaxed text-gray-500 opacity-0 sm:text-lg">
-              A privately owned Mediterranean retreat on the Istrian coast,
-              where Adriatic charm meets genuine Croatian hospitality.
+              {t("hero.description")}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4 opacity-0 lg:justify-start">
               <a
                 href="#rooms"
                 className="min-h-[44px] rounded-lg bg-blue-600 px-8 py-3.5 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
               >
-                Explore Rooms
+                {t("hero.exploreRooms")}
               </a>
               <a
                 href="/book"
                 className="min-h-[44px] rounded-lg border border-blue-200 bg-white/80 px-8 py-3.5 text-base font-semibold text-blue-600 no-underline backdrop-blur-sm transition-all hover:border-blue-300 hover:bg-white"
               >
-                Book Your Stay
+                {t("hero.bookYourStay")}
               </a>
             </div>
           </div>
@@ -343,7 +307,7 @@ function HomePage() {
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <div className="flex flex-col items-center gap-2 text-gray-400">
-            <span className="text-xs font-medium uppercase tracking-widest">Discover</span>
+            <span className="text-xs font-medium uppercase tracking-widest">{t("hero.discover")}</span>
             <svg className="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
             </svg>
@@ -391,33 +355,26 @@ function HomePage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div ref={aboutTextRef}>
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-                Since 1997
+                {t("about.label")}
               </p>
               <h2 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Your Home by the Adriatic
+                {t("about.title")}
               </h2>
               <p className="mb-4 leading-relaxed text-gray-600">
-                Hotel Porec is a privately owned hotel located beside the Marina
-                in the heart of Porec, one of the most beautiful coastal towns
-                on the Istrian peninsula. We have been welcoming guests
-                year-round since 1997.
+                {t("about.description1")}
               </p>
               <p className="mb-6 leading-relaxed text-gray-600">
-                Our rooms offer all the comforts you need: air conditioning,
-                private balcony, satellite TV, minibar, in-room safe, free
-                Wi-Fi, and a modern shower. Whether you are here for a family
-                vacation, a romantic getaway, or business travel, we make you
-                feel at home.
+                {t("about.description2")}
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                  Beside the Marina
+                  {t("about.tagMarina")}
                 </span>
                 <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                  Year-round
+                  {t("about.tagYearRound")}
                 </span>
                 <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                  Family owned
+                  {t("about.tagFamilyOwned")}
                 </span>
               </div>
             </div>
@@ -457,30 +414,26 @@ function HomePage() {
             {/* Text */}
             <div ref={mosaicTextRef}>
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-                Art &amp; Heritage
+                {t("mosaic.label")}
               </p>
               <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                &ldquo;Ples prirode&rdquo;
+                {t("mosaic.title")}
               </h2>
               <p className="mb-4 text-sm font-medium text-blue-500">
-                Dance of Nature &mdash; by Eugen Varzić
+                {t("mosaic.subtitle")}
               </p>
               <p className="mb-6 leading-relaxed text-gray-600">
-                A monumental mosaic by the Travisanutto workshop from
-                Spilimberga, Italy &mdash; depicting wind, water, and sunlight
-                in the colors of the Istrian coast. Commissioned by the
-                Dugandžić family, it places Porec on the global map of
-                mosaic heritage.
+                {t("mosaic.description")}
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                  Mosaic Art
+                  {t("mosaic.tagMosaic")}
                 </span>
                 <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                  Travisanutto Workshop
+                  {t("mosaic.tagWorkshop")}
                 </span>
                 <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700">
-                  Istrian Heritage
+                  {t("mosaic.tagHeritage")}
                 </span>
               </div>
             </div>
@@ -506,7 +459,7 @@ function HomePage() {
               <div className="mosaic-clip-img overflow-hidden rounded-xl">
                 <img
                   src="/mozaik/mozaik-section/655754288_18074886758176866_8702145790916969600_n.jpg"
-                  alt="Mosaic — Dance of Nature by Eugen Varzić"
+                  alt="Mosaic — Dance of Nature by Eugen Varzic"
                   className="aspect-[4/3] w-full object-cover"
                   loading="lazy"
                 />
@@ -524,7 +477,7 @@ function HomePage() {
               ))}
             </p>
             <footer className="mt-4 text-sm font-medium not-italic text-blue-600 opacity-0">
-              &mdash; Eugen Varzić, Artist
+              &mdash; {t("mosaic.quoteAuthor")}
             </footer>
           </blockquote>
         </div>
@@ -540,40 +493,39 @@ function HomePage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div ref={roomsHeaderRef} className="mb-12 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-              Accommodation
+              {t("rooms.label")}
             </p>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Rooms &amp; Suites
+              {t("rooms.title")}
             </h2>
             <p className="mx-auto max-w-2xl text-gray-600">
-              From our premium Apartment 401 with whirlpool to comfortable
-              standard rooms, every space is designed for relaxation.
+              {t("rooms.description")}
             </p>
           </div>
 
           <div ref={roomsGridRef} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {ROOMS.map((room) => (
+            {ROOM_KEYS.map((room) => (
               <article
-                key={room.name}
+                key={room.key}
                 className="group overflow-hidden rounded-xl border border-gray-200/80 bg-white shadow-sm transition-all hover:shadow-lg"
               >
                 <div className="relative overflow-hidden">
                   <img
                     src={room.image}
-                    alt={room.name}
+                    alt={t(`rooms.${room.key}.name`)}
                     className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
                 <div className="p-5">
                   <h3 className="mb-2 text-lg font-semibold text-gray-900">
-                    {room.name}
+                    {t(`rooms.${room.key}.name`)}
                   </h3>
                   <p className="mb-4 text-sm leading-relaxed text-gray-600">
-                    {room.description}
+                    {t(`rooms.${room.key}.description`)}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {room.features.map((feature) => (
+                    {(t(`rooms.${room.key}.features`, { returnObjects: true }) as string[]).map((feature) => (
                       <span
                         key={feature}
                         className="rounded-md bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700"
@@ -626,43 +578,38 @@ function HomePage() {
             {/* Text content */}
             <div ref={restaurantTextRef}>
               <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-                Dining
+                {t("restaurant.label")}
               </p>
               <h2 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Our Restaurant
+                {t("restaurant.title")}
               </h2>
               <p className="mb-4 leading-relaxed text-gray-600">
-                Start every morning with a generous breakfast buffet featuring
-                local and international selections. Fresh bread, Istrian cheeses
-                and cold cuts, seasonal fruits, pastries, and more.
+                {t("restaurant.description1")}
               </p>
               <p className="mb-6 leading-relaxed text-gray-600">
-                For lunch and dinner, our flexible menu offers Mediterranean and
-                Croatian cuisine prepared with fresh, locally sourced
-                ingredients. Enjoy your meal on our terrace with views toward the
-                sea.
+                {t("restaurant.description2")}
               </p>
               <div className="rounded-xl border border-blue-100 bg-blue-50/50 p-5">
                 <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-900">
-                  Dining hours
+                  {t("restaurant.hoursTitle")}
                 </h3>
                 <div className="space-y-2 text-sm text-gray-600">
                   <div className="flex justify-between">
-                    <span>Breakfast buffet</span>
+                    <span>{t("restaurant.breakfast")}</span>
                     <span className="font-medium text-gray-900">
-                      07:00 &ndash; 10:00
+                      {t("restaurant.breakfastTime")}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Lunch</span>
+                    <span>{t("restaurant.lunch")}</span>
                     <span className="font-medium text-gray-900">
-                      12:00 &ndash; 15:00
+                      {t("restaurant.lunchTime")}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Dinner</span>
+                    <span>{t("restaurant.dinner")}</span>
                     <span className="font-medium text-gray-900">
-                      18:00 &ndash; 22:00
+                      {t("restaurant.dinnerTime")}
                     </span>
                   </div>
                 </div>
@@ -692,14 +639,13 @@ function HomePage() {
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div ref={contactHeaderRef} className="mb-12 text-center">
             <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-blue-600">
-              Best Price Guarantee
+              {t("contact.label")}
             </p>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Book Direct &amp; Save
+              {t("contact.title")}
             </h2>
             <p className="mx-auto max-w-2xl text-gray-600">
-              Book directly with us for the lowest rates &mdash; guaranteed lower
-              than any booking platform. No middleman, no hidden fees.
+              {t("contact.description")}
             </p>
           </div>
 
@@ -709,21 +655,21 @@ function HomePage() {
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Best Price Guarantee
+              {t("contact.bestPriceGuarantee")}
             </div>
             <p className="mb-2 text-3xl font-bold text-gray-900">
-              Save up to 15%
+              {t("contact.saveUpTo")}
             </p>
             <p className="mb-6 text-sm leading-relaxed text-gray-500">
-              compared to Booking.com, Expedia, and other OTAs.
+              {t("contact.comparedTo")}
               <br />
-              Book directly &mdash; no middleman, no hidden fees.
+              {t("contact.bookDirectly")}
             </p>
             <a
               href="/book"
               className="inline-block min-h-[44px] rounded-xl bg-blue-600 px-10 py-4 text-base font-semibold text-white no-underline shadow-lg shadow-blue-600/25 transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
             >
-              Book Now &mdash; Best Price
+              {t("contact.bookNowBestPrice")}
             </a>
           </div>
 
@@ -745,7 +691,7 @@ function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Phone</h3>
+              <h3 className="mb-2 font-semibold text-gray-900">{t("contact.phone")}</h3>
               <a
                 href="tel:+38552451811"
                 className="text-blue-600 no-underline hover:text-blue-700"
@@ -771,7 +717,7 @@ function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Email</h3>
+              <h3 className="mb-2 font-semibold text-gray-900">{t("contact.email")}</h3>
               <a
                 href="mailto:info@hotelporec.com"
                 className="text-blue-600 no-underline hover:text-blue-700"
@@ -802,11 +748,11 @@ function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="mb-2 font-semibold text-gray-900">Address</h3>
+              <h3 className="mb-2 font-semibold text-gray-900">{t("contact.address")}</h3>
               <p className="text-sm text-gray-600">
-                Rade Koncara 1
+                {t("contact.addressLine1")}
                 <br />
-                52440 Porec, Croatia
+                {t("contact.addressLine2")}
               </p>
             </div>
           </div>
@@ -832,7 +778,7 @@ function HomePage() {
         href="/book"
         className={`book-now-fab${showBookBtn ? " book-now-fab--visible" : ""}`}
       >
-        Book Now
+        {t("header.bookNow")}
       </a>
     </main>
   )
