@@ -285,8 +285,8 @@ function HomePage() {
           <div className="lg:hidden">
             <div className="hero-img overflow-hidden rounded-2xl shadow-xl">
               <img
-                src="/hotel-site/best-images/apt-01.jpg"
-                alt="Rooftop whirlpool overlooking Porec at night"
+                src="/hotel-site/best-images/exterior-3.jpg"
+                alt="Hotel Porec exterior with garden"
                 className="aspect-[16/10] w-full object-cover"
               />
             </div>
